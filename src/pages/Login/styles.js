@@ -1,0 +1,83 @@
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+export const Container = styled.div`
+    padding-top: 140px;
+    max-width: 350px;
+
+    min-height: 600px;
+    background: rgba(0, 0, 0, 0.1);
+`;
+
+export const LoginInfo = styled.div`
+   
+`;
+
+export const NameApp = styled.h1`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 250px;
+    color: #ccbdbd;
+    font-size: 30px;
+    line-height: 50px;
+    border-top: 2px solid #E49722;
+    border-bottom: 2px solid #E49722;
+    margin-bottom: 50px;
+    margin-left: 50px;
+`;
+
+export const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const LoginInput = styled.input`
+    width: 250px;
+    height: 35px;
+    margin-bottom: 5px;
+    margin-left: 50px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #fff;
+`;
+
+export const PassInput = styled.input`
+    width: 250px;
+    height: 35px;
+    margin-bottom: 40px;
+    margin-left: 50px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #fff;
+`;
+
+export const ButtonSubmit = styled.button`
+    width: 250px;
+    height: 35px;
+    background: #E49722;
+    border-radius: 4px;
+    border: 1px solid #E49722;
+    margin-bottom: 15px;
+    margin-left: 50px;
+`;
+
+export const SigInfo = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 50px;
+`;
+
+export const SignIn = styled(Link)`
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+`;
