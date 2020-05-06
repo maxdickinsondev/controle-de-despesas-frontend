@@ -1,7 +1,7 @@
 import React from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 
-import { Container, LoginInfo, NameApp, Form,
+import { Container, NameApp, Form,
     LoginInput, PassInput, ButtonSubmit, SigInfo, 
     SignIn, NameInput
 } from './styles';

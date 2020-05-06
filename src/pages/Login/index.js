@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
 
 import { Container, NameApp, Form,
@@ -7,11 +8,17 @@ import { Container, NameApp, Form,
 } from './styles';
 
 export default function Login() {
+    const history = useHistory();
+
+    function handleExpenses() {
+        history.push('/despesas');
+    }
+
     return (
         <Container>
             <NameApp>PoupeMax</NameApp>
 
-            <Form>
+            <Form onSubmit={handleExpenses}>
                 <LoginInput 
                     placeholder="E-mail"
                 />
@@ -20,7 +27,7 @@ export default function Login() {
                     placeholder="Password"
                 /> 
 
-                <ButtonSubmit> Entrar </ButtonSubmit> 
+                <ButtonSubmit type="submit" > Entrar </ButtonSubmit> 
             </Form>
 
             <SigInfo>
