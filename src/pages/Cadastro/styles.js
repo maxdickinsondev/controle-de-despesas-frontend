@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-    padding-top: 140px;
+    padding-top: 100px;
+    margin: 40px auto;
     max-width: 350px;
-
-    min-height: 600px;
+    min-height: 530px;
     background: rgba(0, 0, 0, 0.1);
 `;
 
@@ -32,7 +32,7 @@ export const Form = styled.form`
 export const LoginInput = styled.input`
     width: 250px;
     height: 35px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     margin-left: 50px;
     padding: 10px;
     background: rgba(0, 0, 0, 0.2);
@@ -45,6 +45,18 @@ export const PassInput = styled.input`
     width: 250px;
     height: 35px;
     margin-bottom: 40px;
+    margin-left: 50px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #fff;
+`;
+
+export const NameInput = styled.input`
+    width: 250px;
+    height: 35px;
+    margin-bottom: 8px;
     margin-left: 50px;
     padding: 10px;
     background: rgba(0, 0, 0, 0.2);

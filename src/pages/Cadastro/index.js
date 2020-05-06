@@ -1,17 +1,21 @@
 import React from 'react';
-import { FiLogIn } from 'react-icons/fi';
+import { FiArrowLeft } from 'react-icons/fi';
 
-import { Container, NameApp, Form,
+import { Container, LoginInfo, NameApp, Form,
     LoginInput, PassInput, ButtonSubmit, SigInfo, 
-    SignIn,
+    SignIn, NameInput
 } from './styles';
 
-export default function Login() {
+export default function Cadastro() {
     return (
         <Container>
             <NameApp>PoupeMax</NameApp>
 
             <Form>
+                <NameInput 
+                    placeholder="Usuário"
+                />
+
                 <LoginInput 
                     placeholder="E-mail"
                 />
@@ -20,14 +24,14 @@ export default function Login() {
                     placeholder="Password"
                 /> 
 
-                <ButtonSubmit> Entrar </ButtonSubmit> 
+                <ButtonSubmit> Cadastrar </ButtonSubmit> 
             </Form>
 
             <SigInfo>
-                <FiLogIn size={20} color="#E49722" />
+                <FiArrowLeft size={20} color="#E49722" />
                 
-                <SignIn to="/cadastro">
-                    Não tenho cadastro
+                <SignIn to="/">
+                    Votlar pra home
                 </SignIn>
             </SigInfo>
         </Container>
