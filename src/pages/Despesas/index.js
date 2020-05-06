@@ -14,7 +14,9 @@ export default function Despesas() {
                 <Welcome>Bem-vindo, Max!</Welcome>
 
                 <Header>
-                    <Register>Cadastrar nova despesa</Register>
+                    <Register to="/newdespesa">
+                        Cadastrar nova despesa
+                    </Register>
                     
                     <Logout to="/">
                         <FaPowerOff size={30} color="#E02041" />

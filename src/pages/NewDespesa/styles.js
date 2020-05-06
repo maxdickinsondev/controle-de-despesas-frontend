@@ -2,20 +2,21 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-    padding-top: 140px;
+    padding-top: 100px;
+    margin: 40px auto;
     max-width: 350px;
-    min-height: 600px;
+    min-height: 530px;
     background: rgba(0, 0, 0, 0.1);
 `;
 
-export const NameApp = styled.h1`
+export const Screen = styled.h1`
     display: flex;
     align-items: center;
     justify-content: center;
 
     width: 250px;
     color: #ccbdbd;
-    font-size: 30px;
+    font-size: 25px;
     line-height: 50px;
     border-top: 2px solid #E49722;
     border-bottom: 2px solid #E49722;
@@ -28,10 +29,10 @@ export const Form = styled.form`
     flex-direction: column;
 `;
 
-export const LoginInput = styled.input`
+export const ValueInput = styled.input`
     width: 250px;
     height: 35px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     margin-left: 50px;
     padding: 10px;
     background: rgba(0, 0, 0, 0.2);
@@ -40,10 +41,34 @@ export const LoginInput = styled.input`
     color: #fff;
 `;
 
-export const PassInput = styled.input`
+export const DateInput = styled.input`
     width: 250px;
     height: 35px;
     margin-bottom: 40px;
+    margin-left: 50px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #fff;
+`;
+
+export const NameInput = styled.input`
+    width: 250px;
+    height: 35px;
+    margin-bottom: 8px;
+    margin-left: 50px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #fff;
+`;
+
+export const DwellerInput = styled.input`
+    width: 250px;
+    height: 35px;
+    margin-bottom: 8px;
     margin-left: 50px;
     padding: 10px;
     background: rgba(0, 0, 0, 0.2);
@@ -60,7 +85,6 @@ export const ButtonSubmit = styled.button`
     border: 1px solid #E49722;
     margin-bottom: 15px;
     margin-left: 50px;
-    color: #fff;
 `;
 
 export const SigInfo = styled.div`

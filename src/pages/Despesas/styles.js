@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 export const Container = styled.div`
     max-width: 1220px;
     min-width: 1200px;
-    margin-top: 10px;
 `;
 
 export const Welcome = styled.h3`
@@ -28,14 +27,19 @@ export const Header = styled.header`
     margin-right: 25px;
 `;
 
-export const Register = styled.button`
+export const Register = styled(Link)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 20px;
+    font-size: 14px;
     width: 230px;
     height: 35px;
     background: #E49722;
     border-radius: 4px;
     border: 1px solid #E49722;
     text-transform: uppercase;
+    text-decoration: none;
     color: #fff;
 `;
 
