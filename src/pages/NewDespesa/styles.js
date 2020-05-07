@@ -85,6 +85,7 @@ export const ButtonSubmit = styled.button`
     border: 1px solid #E49722;
     margin-bottom: 15px;
     margin-left: 50px;
+    color: #fff;
 `;
 
 export const SigInfo = styled.div`

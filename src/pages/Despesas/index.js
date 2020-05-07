@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaPowerOff, FaCreditCard } from 'react-icons/fa';
 
 import { Container, Welcome, Header, Register,
@@ -7,11 +7,15 @@ import { Container, Welcome, Header, Register,
     Payment, Pay
 } from './styles';
 
+import api from '../../services/api';
+
 export default function Despesas() {
+    const dwellerName = localStorage.getItem('dwellerName');
+    
     return (
         <Container>
             <HeaderInfo>
-                <Welcome>Bem-vindo, Max!</Welcome>
+                <Welcome>{`Bem-vindo, ${dwellerName}!`}</Welcome>
 
                 <Header>
                     <Register to="/newdespesa">

@@ -1,41 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
+import { toast } from 'react-toastify';
 
 import { Container, Screen, Form,
     ValueInput, DateInput, ButtonSubmit, SigInfo, 
     SignIn, NameInput, DwellerInput
 } from './styles';
 
+import api from '../../services/api';
+
 export default function CadastroDespesa() {
+    const [dwellerId, setDwellerId] = useState('');
+    const [name, setName] = useState('');
+    const [value, setValue] = useState('');
+    const [date, setDate] = useState('');
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        const data = {
+            name,
+            value,
+            date,
+            dwellerId
+        }
+        
+        try {
+            await api.post('expenses', data);
+
+            toast.error('Despesa cadastrada com sucesso!');
+        } catch (error) {
+            toast.error('Erro no cadastro, tente mais tarde');
+        }
+    }
+
     return (
         <Container>
             <Screen>Cadastrar despesa</Screen>
 
-            <Form>
+            <Form onSubmit={(e) => handleSubmit(e)}>
                 <DwellerInput 
                     placeholder="ID do morador"
+                    value={dwellerId}
+                    onChange={e => setDwellerId(e.target.value)}
                 />
 
                 <NameInput 
                     placeholder="Nome da despesa"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
                 />
 
                 <ValueInput 
                     placeholder="Valor da despesa"
+                    value={value}
+                    onChange={e => setValue(e.target.value)}
                 />
 
                 <DateInput 
                     placeholder="Data de vencimento"
+                    value={date}
+                    onChange={e => setDate(e.target.value)}
                 /> 
 
-                <ButtonSubmit> Adicionar Despesa</ButtonSubmit> 
+                <ButtonSubmit type="submit"> Adicionar Despesa</ButtonSubmit> 
             </Form>
 
             <SigInfo>
                 <FiArrowLeft size={20} color="#E49722" />
                 
                 <SignIn to="/despesas">
-                    Votlar pra tela principal
+                    Voltar pra tela principal
                 </SignIn>
             </SigInfo>
         </Container>
