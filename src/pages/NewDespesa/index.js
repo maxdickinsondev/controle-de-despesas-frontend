@@ -11,7 +11,7 @@ import api from '../../services/api';
 
 export default function CadastroDespesa() {
     const [dwellerId, setDwellerId] = useState('');
-    const [name, setName] = useState('');
+    const [title, setTitle] = useState('');
     const [value, setValue] = useState('');
     const [date, setDate] = useState('');
 
@@ -19,7 +19,7 @@ export default function CadastroDespesa() {
         e.preventDefault();
 
         const data = {
-            name,
+            title,
             value,
             date,
             dwellerId
@@ -27,8 +27,12 @@ export default function CadastroDespesa() {
         
         try {
             await api.post('expenses', data);
-
             toast.error('Despesa cadastrada com sucesso!');
+
+            setDwellerId('');
+            setTitle('');
+            setValue('');
+            setDate('');
         } catch (error) {
             toast.error('Erro no cadastro, tente mais tarde');
         }
@@ -47,8 +51,8 @@ export default function CadastroDespesa() {
 
                 <NameInput 
                     placeholder="Nome da despesa"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
                 />
 
                 <ValueInput 

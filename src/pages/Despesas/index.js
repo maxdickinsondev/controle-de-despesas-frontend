@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaPowerOff, FaCreditCard } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 import { Container, Welcome, Header, Register,
     HeaderInfo, Logout, DespesasInfo, Expenses,
@@ -11,6 +12,21 @@ import api from '../../services/api';
 
 export default function Despesas() {
     const dwellerName = localStorage.getItem('dwellerName');
+    const [expenses, setExpenses] = useState([]);
+    
+    useEffect(() => {
+        async function loadExpenses() {
+            try {
+                const response = await api.get('/unpaidAll');
+
+                setExpenses(response.data);
+            } catch (error) {
+                toast.error('Erro ao carregar as depesas.');
+            }
+        }
+
+        loadExpenses();
+    }, []);
     
     return (
         <Container>
@@ -30,157 +46,26 @@ export default function Despesas() {
 
             <DespesasInfo>
                 <Expenses>
-                    <li>
-                        <Payment>
-                            <Dweller>Max</Dweller>
+                    {expenses.map(exp => (
+                        <li>
+                            <Payment>
+                                <Dweller> {exp.name} </Dweller>
+                                
+                                <Pay>
+                                    <FaCreditCard size={20} color="#000"/>
+                                </Pay>
+                            </Payment>
                             
-                            <Pay>
-                                <FaCreditCard size={20} color="#000"/>
-                            </Pay>
-                        </Payment>
-                        
-                        <Description>Despesa:</Description>
-                        <ExpenseName>Aluguel</ExpenseName>
+                            <Description>Despesa:</Description>
+                            <ExpenseName>{exp.title}</ExpenseName>
 
-                        <Description>Valor:</Description>
-                        <Value>R$ 75,00</Value>
+                            <Description>Valor:</Description>
+                            <Value>R$ {exp.value} </Value>
 
-                        <Description>Vencimento:</Description>
-                        <Date>04/05</Date>
-                    </li>
-
-                    <li>
-                        <Payment>
-                            <Dweller>Max</Dweller>
-                            
-                            <Pay>
-                                <FaCreditCard size={20} color="#000"/>
-                            </Pay>
-                        </Payment>
-                        
-                        <Description>Despesa:</Description>
-                        <ExpenseName>Aluguel</ExpenseName>
-
-                        <Description>Valor:</Description>
-                        <Value>R$ 75,00</Value>
-
-                        <Description>Vencimento:</Description>
-                        <Date>04/05</Date>
-                    </li>
-
-                    <li>
-                        <Payment>
-                            <Dweller>Max</Dweller>
-                            
-                            <Pay>
-                                <FaCreditCard size={20} color="#000"/>
-                            </Pay>
-                        </Payment>
-                        
-                        <Description>Despesa:</Description>
-                        <ExpenseName>Aluguel</ExpenseName>
-
-                        <Description>Valor:</Description>
-                        <Value>R$ 75,00</Value>
-
-                        <Description>Vencimento:</Description>
-                        <Date>04/05</Date>
-                    </li>
-
-                    <li>
-                        <Payment>
-                            <Dweller>Max</Dweller>
-                            
-                            <Pay>
-                                <FaCreditCard size={20} color="#000"/>
-                            </Pay>
-                        </Payment>
-                        
-                        <Description>Despesa:</Description>
-                        <ExpenseName>Aluguel</ExpenseName>
-
-                        <Description>Valor:</Description>
-                        <Value>R$ 75,00</Value>
-
-                        <Description>Vencimento:</Description>
-                        <Date>04/05</Date>
-                    </li>
-
-                    <li>
-                        <Payment>
-                            <Dweller>Max</Dweller>
-                            
-                            <Pay>
-                                <FaCreditCard size={20} color="#000"/>
-                            </Pay>
-                        </Payment>
-                        
-                        <Description>Despesa:</Description>
-                        <ExpenseName>Aluguel</ExpenseName>
-
-                        <Description>Valor:</Description>
-                        <Value>R$ 75,00</Value>
-
-                        <Description>Vencimento:</Description>
-                        <Date>04/05</Date>
-                    </li>
-
-                    <li>
-                        <Payment>
-                            <Dweller>Max</Dweller>
-                            
-                            <Pay>
-                                <FaCreditCard size={20} color="#000"/>
-                            </Pay>
-                        </Payment>
-                        
-                        <Description>Despesa:</Description>
-                        <ExpenseName>Aluguel</ExpenseName>
-
-                        <Description>Valor:</Description>
-                        <Value>R$ 75,00</Value>
-
-                        <Description>Vencimento:</Description>
-                        <Date>04/05</Date>
-                    </li>
-
-                    <li>
-                        <Payment>
-                            <Dweller>Max</Dweller>
-                            
-                            <Pay>
-                                <FaCreditCard size={20} color="#000"/>
-                            </Pay>
-                        </Payment>
-                        
-                        <Description>Despesa:</Description>
-                        <ExpenseName>Aluguel</ExpenseName>
-
-                        <Description>Valor:</Description>
-                        <Value>R$ 75,00</Value>
-
-                        <Description>Vencimento:</Description>
-                        <Date>04/05</Date>
-                    </li>
-
-                    <li>
-                        <Payment>
-                            <Dweller>Max</Dweller>
-                            
-                            <Pay>
-                                <FaCreditCard size={20} color="#000"/>
-                            </Pay>
-                        </Payment>
-                        
-                        <Description>Despesa:</Description>
-                        <ExpenseName>Aluguel</ExpenseName>
-
-                        <Description>Valor:</Description>
-                        <Value>R$ 75,00</Value>
-
-                        <Description>Vencimento:</Description>
-                        <Date>04/05</Date>
-                    </li>
+                            <Description>Vencimento:</Description>
+                            <Date> {exp.date} </Date>
+                        </li>
+                    ))}
                 </Expenses>
             </DespesasInfo>
         </Container>
