@@ -108,6 +108,6 @@ export const Payment = styled.div`
     margin-right: 10px;
 `;
 
-export const Pay = styled(Link)`
+export const PayButton = styled.button`
     
 `;

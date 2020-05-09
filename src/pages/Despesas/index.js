@@ -5,13 +5,14 @@ import { toast } from 'react-toastify';
 import { Container, Welcome, Header, Register,
     HeaderInfo, Logout, DespesasInfo, Expenses,
     Dweller, ExpenseName, Value, Date, Description,
-    Payment, Pay
+    Payment, PayButton
 } from './styles';
 
 import api from '../../services/api';
 
 export default function Despesas() {
     const dwellerName = localStorage.getItem('dwellerName');
+
     const [expenses, setExpenses] = useState([]);
     
     useEffect(() => {
@@ -26,7 +27,16 @@ export default function Despesas() {
         }
 
         loadExpenses();
-    }, []);
+    }, [expenses]);
+
+    async function handlePayment(id) {
+        try {
+            await api.put(`/expenses/${id}`);
+            toast.error('Pagamento confirmado.');
+        } catch (error) {
+            toast.error('Erro ao confirmar pagamento.');
+        }
+    }
     
     return (
         <Container>
@@ -51,9 +61,9 @@ export default function Despesas() {
                             <Payment>
                                 <Dweller> {exp.name} </Dweller>
                                 
-                                <Pay>
+                                <PayButton type="button" onClick={() => handlePayment(exp.expensesId)}>
                                     <FaCreditCard size={20} color="#000"/>
-                                </Pay>
+                                </PayButton>
                             </Payment>
                             
                             <Description>Despesa:</Description>
