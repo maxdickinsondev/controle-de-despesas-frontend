@@ -3,9 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
 import bg from '../assets/images/background.png';
 
-export default createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
+export default createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
@@ -16,7 +16,7 @@ export default createGlobalStyle`
     body {
         background: url(${bg}) no-repeat center top;
         background-size: cover;
-        font-family: 'Roboto', cursive;
+        font-family: sans-serif;
     }
 
     body, input, button {
